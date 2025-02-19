@@ -8,12 +8,12 @@ import {
 } from "../db/schema";
 import logger from "../logger";
 import client from "../services/reddit-api-client";
+import { websocketManager } from "../websocket";
 import {
+  commentsSyncQueue,
   modqueueSyncQueue,
   postsSyncQueue,
-  commentsSyncQueue,
 } from "../workers";
-import { websocketManager } from "./websocket";
 
 const app = new Hono();
 

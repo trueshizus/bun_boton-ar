@@ -2,18 +2,10 @@ import { Hono } from "hono";
 import { createBunWebSocket } from "hono/bun";
 
 import api from "./api";
-import dashboard from "./dashboard";
-import { websocketManager } from "./routes/websocket"; // Import the manager
-import createClient from "./services/reddit-api-client";
+import dashboard from "./app";
+import { websocketManager } from "./websocket"; // Import the manager
 
 const app = new Hono();
-const client = createClient();
-
-app.get("/api/health", (c) => {
-  return c.json({ message: "ok" });
-});
-
-// clears the db and redis, restarts workers
 
 // // Update approve endpoint to handle cache
 // app.post("/api/approve/:thing", async (c) => {
